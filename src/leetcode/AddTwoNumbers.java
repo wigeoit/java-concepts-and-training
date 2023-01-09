@@ -1,6 +1,6 @@
 package leetcode;
 
-import java.util.function.Predicate;
+import leetcode.util.ListNode;
 
 /*
     You are given two non-empty linked lists representing two non-negative integers.

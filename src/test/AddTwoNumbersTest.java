@@ -1,7 +1,7 @@
 package test;
 
 import leetcode.AddTwoNumbers;
-import leetcode.ListNode;
+import leetcode.util.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
