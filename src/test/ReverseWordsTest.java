@@ -1,12 +1,34 @@
 package test;
 
 import leetcode.ReverseWords;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReverseWordsTest {
-    public static void main(String[] args) {
-        ReverseWords test = new ReverseWords();
-        System.out.println(test.reverseWords("   hello    world   "));
-        System.out.println(test.reverseWordsV2("   hello    world   "));
-        System.out.println(test.reverseWordsV3("   hello    world   "));
+    ReverseWords test = new ReverseWords();
+
+    @Test
+    void blueIsSkyThe(){
+        String s = "the sky is blue";
+        String expectedResult = "blue is sky the";
+
+        assertEquals(expectedResult, test.reverseWords(s));
+    }
+
+    @Test
+    void worldHello(){
+        String s = "  hello world  ";
+        String expectedResult = "world hello";
+
+        assertEquals(expectedResult, test.reverseWords(s));
+    }
+
+    @Test
+    void exampleGoodA(){
+        String s = "a good    example";
+        String expectedResult = "example good a";
+
+        assertEquals(expectedResult, test.reverseWords(s));
     }
 }

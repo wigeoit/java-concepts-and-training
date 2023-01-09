@@ -20,7 +20,7 @@ public class MainMethod {
     public static void main(String[] args){
         /*
          The main method is the first piece of our code that is executed
-          by the JVM, and it will be located at the stack
+         by the JVM, and it will be located at the stack.
         */
         System.out.println(Character.MIN_VALUE);
     }

@@ -1,16 +1,31 @@
 package test;
 
 import leetcode.RomanToInt;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RomanToIntTest {
-    public static void main(String[] args){
-        RomanToInt romanToInt = new RomanToInt();
+    RomanToInt test = new RomanToInt();
 
-        System.out.println(romanToInt.romanToInt("XXVI"));
-        System.out.println(romanToInt.romanToInt("XXIV"));
-        System.out.println(romanToInt.romanToInt("IV"));
-        System.out.println(romanToInt.romanToInt("MCC"));
-        System.out.println(romanToInt.romanToInt("CD"));
-        System.out.println(romanToInt.romanToInt("CM"));
+    @Test
+    void iiiTo3(){
+        String s = "III";
+        int expectedResult = 3;
+        assertEquals(expectedResult, test.romanToInt(s));
+    }
+
+    @Test
+    void mcmxcivTo1993(){
+        String s = "MCMXCIII";
+        int expectedResult = 1993;
+        assertEquals(expectedResult, test.romanToInt(s));
+    }
+
+    @Test
+    void lviiiTo58(){
+        String s = "LVIII";
+        int expectedResult = 58;
+        assertEquals(expectedResult, test.romanToInt(s));
     }
 }

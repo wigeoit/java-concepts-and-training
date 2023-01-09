@@ -1,16 +1,40 @@
 package test;
 
 import leetcode.TwoSum;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TwoSumTest {
-    public static void main(String[] args) {
-        TwoSum twoSumTest = new TwoSum();
-        int[] testArray = {5,6,7,2};
+    TwoSum test = new TwoSum();
 
-        int[] twoSumResult = twoSumTest.twoSum(testArray, 9);
+    @Test
+    void target9(){
+        int[] nums = {2,7,11,15};
+        int target = 9;
+        int[] expectedResult = {0,1};
 
+        assertEquals(expectedResult[0], test.twoSum(nums, target)[0]);
+        assertEquals(expectedResult[1], test.twoSum(nums, target)[1]);
+    }
 
-        System.out.println("Position 1: " + twoSumResult[0]);
-        System.out.println("Position 2: " + twoSumResult[1]);
+    @Test
+    void target6(){
+        int[] nums = {3,2,4};
+        int target = 6;
+        int[] expectedResult = {1,2};
+
+        assertEquals(expectedResult[0], test.twoSum(nums, target)[0]);
+        assertEquals(expectedResult[1], test.twoSum(nums, target)[1]);
+    }
+
+    @Test
+    void target6Again(){
+        int[] nums = {3,3};
+        int target = 6;
+        int[] expectedResult = {0,1};
+
+        assertEquals(expectedResult[0], test.twoSum(nums, target)[0]);
+        assertEquals(expectedResult[1], test.twoSum(nums, target)[1]);
     }
 }

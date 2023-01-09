@@ -1,10 +1,77 @@
 package leetcode;
 
+/*
+    Given a string s, return the longest palindromic substring in s.
+
+    Example 1:
+        Input: s = "babad"
+        Output: "bab"
+        Explanation: "aba" is also a valid answer.
+
+    Example 2:
+        Input: s = "cbbd"
+        Output: "bb"
+*/
+
 public class LongestPalindromicSubstring {
     public String longestPalindrome(String s) {
-        String longestPalindrome = "";
-        System.out.println("String to evaluate: " + s + " Length: " + longestPalindrome.length());
+        if(s.length() <= 1){
+            return s;
+        }
+        int max_length = 1;
+        int n = s.length();
+        int start = 0;
+        int end = 0;
 
+        for(int i = 0; i < n-1; i++){
+            int left = i;
+            int right = i;
+
+            while(left >= 0 && right < n){
+                if(s.charAt(left) == s.charAt(right)){
+                    left--;
+                    right++;
+                }
+                else{
+                    break;
+                }
+            }
+
+            int length = right - left -1;
+
+            if(length > max_length){
+                max_length = length;
+
+                start = left+1;
+                end= right-1;
+            }
+        }
+        for(int i = 0; i < n-1 ; i++){
+            int left = i;
+            int right = i+1;
+            while(left >= 0 && right < n){
+                if(s.charAt(left) == s.charAt(right)){
+                    left--;
+                    right++;
+                }
+                else{
+                    break;
+                }
+
+            }
+            int length = right - left -1;
+            if(length > max_length){
+                max_length = length;
+
+                start = left + 1;
+                end = right -1;
+            }
+        }
+        return s.substring(start, end+1);
+    }
+
+    public String longestPalindromeV2(String s) {
+        String longestPalindrome = "";
         String stringToEvaluate = "";
 
         for(int i = 0; i < s.length(); i++){
@@ -14,8 +81,6 @@ public class LongestPalindromicSubstring {
                 }else{
                     stringToEvaluate= s.substring(i,j);
                 }
-                //System.out.println("Substring " + stringToEvaluate + " is palindrome result: " + isPalindromeSubstring(stringToEvaluate));
-                //System.out.println("Substring " + stringToEvaluate + " length comparison result: " + (stringToEvaluate.length() > longestPalindrome.length()));
                 if(isPalindromeSubstring(stringToEvaluate) && stringToEvaluate.length() > longestPalindrome.length()){
                     longestPalindrome = stringToEvaluate;
                 }
@@ -33,60 +98,5 @@ public class LongestPalindromicSubstring {
             j--;
         }
         return true;
-    }
-
-    public String longestPalindromeV2(String s) {
-//     length is less than or equal to 1
-        if(s.length()<=1){
-            return s;
-        }
-        int max_length=1;
-        int n=s.length();
-        int st=0,end=0;
-
-        //odd
-        for(int i=0;i<n-1;i++){
-            int l = i,r=i;
-
-            while(l>=0&&r<n){
-                if(s.charAt(l)==s.charAt(r)){
-                    l--;
-                    r++;
-                }
-                else{
-                    break;
-                }
-            }
-            int len = r-l-1;
-            if(len>max_length){
-                max_length= len;
-
-                st=l+1;
-                end= r-1;
-            }
-        }
-
-        //even length
-        for(int i=0;i<n-1;i++){
-            int l=i,r=i+1;
-            while(l>=0&& r<n){
-                if(s.charAt(l)==s.charAt(r)){
-                    l--;
-                    r++;
-                }
-                else{
-                    break;
-                }
-
-            }
-            int len = r-l-1;
-            if(len>max_length){
-                max_length= len;
-
-                st=l+1;
-                end= r-1;
-            }
-        }
-        return s.substring(st,end+1);
     }
 }

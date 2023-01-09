@@ -3,6 +3,26 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+    Link: https://leetcode.com/problems/roman-to-intege
+
+    Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+    Example 1:
+        Input: s = "III"
+        Output: 3
+        Explanation: III = 3.
+
+    Example 2:
+        Input: s = "LVIII"
+        Output: 58
+        Explanation: L = 50, V= 5, III = 3.
+
+    Example 3:
+        Input: s = "MCMXCIV"
+        Output: 1994
+        Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+*/
 public class RomanToInt {
     public int romanToInt(String s) {
         String romanNumber = s.toUpperCase();
@@ -19,7 +39,6 @@ public class RomanToInt {
 
         int stringLength = s.length();
         int intReturn = romanNumbersMap.get(romanNumber.charAt(stringLength-1));
-
 
         for(int i= stringLength-2; i >= 0; i--) {
             if (romanNumbersMap.get(romanNumber.charAt(i)) >= romanNumbersMap.get(romanNumber.charAt(i + 1))) {

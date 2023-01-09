@@ -4,6 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+    Problem link: https://leetcode.com/problems/median-of-two-sorted-arrays/
+
+    Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+    The overall run time complexity should be O(log (m+n)).
+
+    Example 1:
+        Input: nums1 = [1,3], nums2 = [2]
+        Output: 2.00000
+        Explanation: merged array = [1,2,3] and median is 2.
+
+    Example 2:
+        Input: nums1 = [1,2], nums2 = [3,4]
+        Output: 2.50000
+        Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+
+*/
+
 public class MedianOfTwoSortedArray {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         boolean lengthIsEven = false;
@@ -32,10 +51,8 @@ public class MedianOfTwoSortedArray {
         List<Integer> sortedList = mergedList.stream().sorted().collect(Collectors.toList());
 
         if(!lengthIsEven){
-            System.out.println("Is odd: " + sortedList.get(medianIndex));
             return (double)(sortedList.get(medianIndex));
         }else{
-            System.out.println("Is even: " + sortedList.get(medianIndex-1) + " + " + sortedList.get(medianIndex));
             return (double) (sortedList.get(medianIndex-1)+sortedList.get(medianIndex))/2;
         }
     }

@@ -1,16 +1,26 @@
 package test;
 
 import leetcode.MedianOfTwoSortedArray;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 public class MedianOfTwoSortedArrayTest {
-    public static void main(String[] args) {
-        int[] a = {1,3,5};
-        int[] b = {2,4};
+    MedianOfTwoSortedArray test = new MedianOfTwoSortedArray();
 
-        // 0 1 2 3 4
-        // 1 2 3 4 5
+    @Test
+    void returnsTwo(){
+        int[] nums1 ={1,3};
+        int[] nums2 ={2};
+        double expectedResult = 2.0;
 
-        MedianOfTwoSortedArray test = new MedianOfTwoSortedArray();
-        System.out.println(test.findMedianSortedArrays(a,b));
+        assertEquals(expectedResult, test.findMedianSortedArrays(nums1, nums2));
+    }
+    @Test
+    void returnsTwoPointFive(){
+        int[] nums1 ={1,2};
+        int[] nums2 ={3,4};
+        double expectedResult = 2.5;
+
+        assertEquals(expectedResult, test.findMedianSortedArrays(nums1, nums2));
     }
 }
